@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/vandium-io/aws-cognito-public-keys.svg?branch=master)](https://travis-ci.org/vandium-io/aws-cognito-public-keys)
-[![npm version](https://badge.fury.io/js/aws-cognito-public-keys.svg)](https://badge.fury.io/js/aws-cognito-public-keys)
+[![Build Status](https://travis-ci.org/vandium-io/jwks-source.svg?branch=master)](https://travis-ci.org/vandium-io/jwks-source)
+[![npm version](https://badge.fury.io/js/jwks-sourcesvg)](https://badge.fury.io/js/jwks-source)
 
 # `jwks-source`
 
@@ -17,23 +17,18 @@ Install via npm.
 ## Getting Started
 
 ```js
-const { getKeysSync } = require( 'aws-cognito-public-keys' );
+const { Provider } = require( 'jwks-source' );
 
-const userPoolId = 'us-east-1_ZLPZ8Z7yS'; // your user pool id
+const jwks = Provider.AWSCognito({
 
-const awsRegion = 'us-east1';             // valid AWS Region
+		userPoolId = 'us-east-1_ZLPZ8Z7yS',
+		region: 'us-east-1'
+	});
 
-const key = getKeysSync( userPoolId, awsRegion );
+// jwks.keys = [ { jws instance}, ... ]
 
-// keys =
-// {
-//    "<key id 1>": { ...key1 ... }
-//    "<key id 2>": { ...key2 ... }
-//    ..
-// }
+// jwks.id( kid )	// to get with a specific id
 ```
-
-## API
 
 ## Feedback
 

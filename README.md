@@ -23,7 +23,7 @@ const jwks = Provider.AWSCognito({
 
 		userPoolId = 'us-east-1_ZLPZ8Z7yS',
 		region: 'us-east-1'
-	});
+	}).getAsync();
 
 // jwks.keys = [ { jws instance}, ... ]
 
